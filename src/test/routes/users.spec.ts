@@ -28,7 +28,7 @@ describe("Check : Users Service ", () : void => {
         chai.request(usersApp)
             .get('/user/account-details/Deepankar')
             .end((err : any , res : any ) => {
-                expect(res.status).to.be.equal(201);
+                expect(res.status).to.be.equal(403);
                 done();
             })
     })
