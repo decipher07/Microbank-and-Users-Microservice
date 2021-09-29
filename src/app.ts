@@ -15,16 +15,16 @@ usersApp.get('/', ( req : Request , res : Response ) :  Response => {
     return res.status(200).json({"message" : " User Base Working Fine "})
 })
 
-bankApp.get('/', ( req : Request , res : Response ) :  Response => {
-    return res.status(200).json({"message" : " Bank Base Working Fine "})
-})
+// bankApp.get('/', ( req : Request , res : Response ) :  Response => {
+//     return res.status(200).json({"message" : " Bank Base Working Fine "})
+// })
 
 usersApp.listen(usersPort, () : void => {
     console.log(`Server For Users Port Running at : ${usersPort}`);
 })
 
-bankApp.listen(bankPort, () : void => {
-    console.log(`Server For Banks Port Running at : ${bankPort}`);
-})
+// bankApp.listen(bankPort, () : void => {
+//     console.log(`Server For Banks Port Running at : ${bankPort}`);
+// })
 
-export { usersApp, bankApp }
+export { usersApp }

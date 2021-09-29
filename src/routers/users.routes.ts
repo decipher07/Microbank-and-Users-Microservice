@@ -56,7 +56,7 @@ router.get('/account-details/:nameOfUser', async ( req : Request , res : Respons
                 });
 
             }).on("error", (err) => {
-              console.log("Error: " + err.message);        
+              res.status(403).send(err.message);  
         });
 
     } catch ( e : any ) {
