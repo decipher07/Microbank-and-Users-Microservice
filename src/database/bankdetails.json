@@ -1,0 +1,17 @@
+[
+    {
+        "type" : "Savings",
+        "balance" : 5000,
+        "usersid" : 1
+    },
+    {
+        "type" : "Current",
+        "balance" : 10000,
+        "usersid" : 3
+    },
+    {
+        "type" : "Joint",
+        "balance" : 2000,
+        "usersid" : 4
+    }
+]
