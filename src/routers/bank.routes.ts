@@ -23,12 +23,12 @@ router.get('/:usersBankId' , ( req : Request, res : Response ) : Response => {
     let database : bankInterface[] = bankDatabase ;
 
         
-    let blogs : bankInterface[] = database.filter((document) => document.usersid == parseInt(usersBankId) );
+    let bank : bankInterface[] = database.filter((document) => document.usersid == parseInt(usersBankId) );
     
-    if ( blogs.length == 0 )
+    if ( bank.length == 0 )
         return res.status(303).send("No Bank Details for The Given User!");
 
-    return res.status(200).json({ "Message" : "The Below is the Bank Detail of the User ", "blogs" : blogs });
+    return res.status(200).json({ "Message" : "The Below is the Bank Detail of the User ", "bank" : bank });
 })
 
 export default router ;
