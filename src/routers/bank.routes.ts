@@ -11,7 +11,7 @@ interface bankInterface {
 }
 
 router.get('/', ( req : Request, res : Response ) : Response => {
-    return res.status(200).send("Blog Service Running Successfully.........")
+    return res.status(200).send("Bank Service Running Successfully.........")
 })
 
 router.get('/:usersBankId' , ( req : Request, res : Response ) : Response => {
