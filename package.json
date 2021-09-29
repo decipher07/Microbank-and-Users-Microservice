@@ -4,7 +4,11 @@
   "description": "A Microservice Integration with Jenkins, Ansible and Docker for a Bank and a User Module.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node build/src/app.js",
+    "dev": "nodemon build/src/app.js",
+    "watch-ts": "tsc -w",
+    "test": "NODE_ENV=test mocha -r ts-node/register -r tsconfig-paths/register \"src/test/**/*.spec.ts\" --exit",
+    "package": "tsc"
   },
   "repository": {
     "type": "git",
