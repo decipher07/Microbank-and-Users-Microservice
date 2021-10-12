@@ -1,14 +1,34 @@
-FROM node:latest
-ENV NODE_ENV=production
+FROM ubuntu:latest
 
-WORKDIR /app
+RUN apt-get update -y
 
-COPY ["package.json", "package-lock.json*", "./"]
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
 
-RUN npm install --production
+RUN echo 'root:root' |chpasswd
 
-COPY . .
+RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
-EXPOSE  3000 3001
+RUN mkdir /root/.ssh
 
-CMD [ "node", "build/src/app.js" ]
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN apt-get update -y
+
+RUN apt-get upgrade -y
+
+RUN apt-get install git -y
+
+RUN apt install nodejs -y
+
+RUN apt install npm -y
+
+RUN apt-get update -y
+
+RUN apt-get upgrade -y
+
+EXPOSE 22 3000 3001
+
+CMD ["/usr/sbin/sshd", "-D"]
